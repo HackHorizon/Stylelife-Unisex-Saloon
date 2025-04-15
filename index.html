@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylelife Unisex Salon | Premium Beauty & Grooming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --secondary: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), 
+                        url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            perspective: 1000px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-image {
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .stylist-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .stylist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stylist-image {
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .stylist-card:hover .stylist-image {
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .booking-form {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.3), 0 2px 4px -1px rgba(139, 92, 246, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4), 0 4px 6px -2px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .rotate-in {
+            animation: rotateIn 1s ease-out;
+        }
+        
+        @keyframes rotateIn {
+            from { transform: rotate(-5deg) scale(0.95); opacity: 0; }
+            to { transform: rotate(0) scale(1); opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-grow {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-grow:hover {
+            transform: scale(1.05);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .border-gradient {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) border-box;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <i class="fas fa-scissors text-2xl text-purple-600 mr-2"></i>
+                    <span class="text-xl font-bold text-gray-800">Stylelife</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-6">
+                        <a href="#home" class="nav-link text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#stylists" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Stylists</a>
+                        <a href="#testimonials" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Testimonials</a>
+                        <a href="#booking" class="btn-primary text-white px-5 py-2 rounded-full text-sm font-medium">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#stylists" class="text-gray-700 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Stylists</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
+                <a href="#booking" class="btn-primary text-white block px-3 py-2 rounded-md text-base font-medium">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white pt-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInDown">Stylelife <span class="text-gradient">Unisex Salon</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate__animated animate__fadeIn animate__delay-1s">Where beauty meets expertise. Experience premium grooming services for everyone in a luxurious atmosphere.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate__animated animate__fadeIn animate__delay-2s">
+                <a href="#booking" class="btn-primary text-white font-bold py-3 px-8 rounded-full">Book Appointment</a>
+                <a href="#services" class="btn-secondary bg-transparent hover:bg-white hover:text-purple-600 text-white font-bold py-3 px-8 border-2 border-white rounded-full">Our Services</a>
+            </div>
+        </div>
+        
+        <div class="scroll-down animate__animated animate__fadeIn animate__delay-3s">
+            <a href="#services" class="text-white hover:text-purple-300">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 slide-in-left">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Welcome to <span class="text-gradient">Stylelife</span></h2>
+                    <p class="text-gray-600 mb-4">At Stylelife Unisex Salon, we believe that everyone deserves to look and feel their best. Our team of highly skilled professionals is dedicated to providing exceptional services tailored to your unique style and needs.</p>
+                    <p class="text-gray-600 mb-6">We use only premium products and the latest techniques to ensure you leave our salon feeling confident and refreshed.</p>
+                    <div class="flex items-center">
+                        <div class="flex -space-x-2 overflow-hidden mr-4">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white hover-grow" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white hover-grow" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white hover-grow" src="https://randomuser.me/api/portraits/women/43.jpg" alt="">
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Trusted by 1000+ clients</p>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-2 text-sm text-gray-600">5.0 (200+ reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 lg:pl-12 slide-in-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="feature-card bg-purple-50 p-6 rounded-xl border border-purple-100">
+                            <div class="feature-icon bg-purple-100 text-purple-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-calendar-check text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Easy Booking</h3>
+                            <p class="text-gray-600">Book your appointment online in just a few clicks.</p>
+                        </div>
+                        <div class="feature-card bg-yellow-50 p-6 rounded-xl border border-yellow-100">
+                            <div class="feature-icon bg-yellow-100 text-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-award text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Certified Experts</h3>
+                            <p class="text-gray-600">Our stylists are trained and certified professionals.</p>
+                        </div>
+                        <div class="feature-card bg-blue-50 p-6 rounded-xl border border-blue-100">
+                            <div class="feature-icon bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-spa text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Premium Products</h3>
+                            <p class="text-gray-600">We use only high-quality, professional-grade products.</p>
+                        </div>
+                        <div class="feature-card bg-green-50 p-6 rounded-xl border border-green-100">
+                            <div class="feature-icon bg-green-100 text-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Satisfaction Guaranteed</h3>
+                            <p class="text-gray-600">Your satisfaction is our top priority.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our <span class="text-gradient">Services</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional beauty and grooming services for both men and women.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Haircut" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Haircut & Styling</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$35+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Professional haircut and styling tailored to your face shape and personal style.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Customized to your needs</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Includes shampoo & blow dry</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Professional styling advice</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in" style="animation-delay: 0.1s;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Coloring" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Hair Coloring</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$60+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Transform your look with our professional coloring services using premium products.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Full color or highlights</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Balayage & ombre techniques</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Color correction available</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in" style="animation-delay: 0.2s;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Facial" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Skin Care & Facial</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$45+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Rejuvenate your skin with our customized facials and skincare treatments.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Deep cleansing facial</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Anti-aging treatments</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Customized for your skin type</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in" style="animation-delay: 0.3s;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Beard" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Beard Grooming</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$25+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Professional beard trimming, shaping, and conditioning for the perfect look.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Precision trimming</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Hot towel treatment</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Beard oil application</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in" style="animation-delay: 0.4s;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Manicure" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Manicure & Pedicure</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$30+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pamper your hands and feet with our luxurious manicure and pedicure services.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Classic & gel options</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Cuticle care</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Massage included</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md scale-in" style="animation-delay: 0.5s;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596704017250-9a8b57429a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Bridal" class="w-full h-full object-cover service-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-gray-800">Bridal & Special Occasion</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">$100+</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Make your special day perfect with our bridal and event styling packages.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Hair & makeup services</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">Trial sessions available</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                                <span class="text-gray-700">On-location services</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stylists Section -->
+    <section id="stylists" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Meet Our <span class="text-gradient">Stylists</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our team of talented professionals is dedicated to making you look and feel your best.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stylist 1 -->
+                <div class="stylist-card bg-white rounded-xl overflow-hidden shadow-md rotate-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson" class="w-full h-full object-cover stylist-image">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Sarah Johnson</h3>
+                        <p class="text-purple-600 font-medium mb-3">Master Stylist</p>
+                        <p class="text-gray-600 mb-4">Specializing in precision cuts and balayage techniques with 10 years of experience.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stylist 2 -->
+                <div class="stylist-card bg-white rounded-xl overflow-hidden shadow-md rotate-in" style="animation-delay: 0.1s;">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=740&q=80" alt="Michael Chen" class="w-full h-full object-cover stylist-image">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Michael Chen</h3>
+                        <p class="text-purple-600 font-medium mb-3">Barber & Grooming Expert</p>
+                        <p class="text-gray-600 mb-4">Specializing in men's grooming, classic cuts, and beard styling with 8 years of experience.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stylist 3 -->
+                <div class="stylist-card bg-white rounded-xl overflow-hidden shadow-md rotate-in" style="animation-delay: 0.2s;">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Emma Rodriguez" class="w-full h-full object-cover stylist-image">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Emma Rodriguez</h3>
+                        <p class="text-purple-600 font-medium mb-3">Color Specialist</p>
+                        <p class="text-gray-600 mb-4">Specializing in creative color transformations and corrective color with 7 years of experience.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stylist 4 -->
+                <div class="stylist-card bg-white rounded-xl overflow-hidden shadow-md rotate-in" style="animation-delay: 0.3s;">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="David Wilson" class="w-full h-full object-cover stylist-image">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">David Wilson</h3>
+                        <p class="text-purple-600 font-medium mb-3">Skincare Specialist</p>
+                        <p class="text-gray-600 mb-4">Specializing in facials, skincare treatments, and men's grooming with 9 years of experience.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-purple-600 transition duration-300 hover-grow"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-purple-600 text-white parallax" style="background-image: linear-gradient(135deg, rgba(139, 92, 246, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%), url('https://images.unsplash.com/photo-1496442226666-8d1882580f6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied clients.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-xl glass-effect scale-in">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jessica T." class="w-12 h-12 rounded-full mr-4 hover-grow">
+                        <div>
+                            <h4 class="font-bold">Jessica T.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Sarah gave me the best haircut I've ever had! She listened to what I wanted and made great suggestions. The salon has such a relaxing atmosphere too."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-xl glass-effect scale-in" style="animation-delay: 0.1s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Robert L." class="w-12 h-12 rounded-full mr-4 hover-grow">
+                        <div>
+                            <h4 class="font-bold">Robert L.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Michael is a true artist when it comes to beard grooming. I've been coming to him for years and he never disappoints. The hot towel treatment is amazing!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-xl glass-effect scale-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amanda S." class="w-12 h-12 rounded-full mr-4 hover-grow">
+                        <div>
+                            <h4 class="font-bold">Amanda S.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Emma transformed my hair with the most beautiful balayage I've ever had. She's so knowledgeable about color and the products they use are top quality."</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center fade-in">
+                <a href="#booking" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full">Book Your Appointment Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12 slide-in-left">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Book Your <span class="text-gradient">Appointment</span></h2>
+                    <p class="text-gray-600 mb-6">Ready to experience the Stylelife difference? Book your appointment online or give us a call at <span class="font-bold">(555) 123-4567</span>.</p>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md mb-8 border-gradient">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Salon Hours</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between">
+                                <span class="text-gray-700">Monday - Friday</span>
+                                <span class="font-medium">9:00 AM - 7:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-700">Saturday</span>
+                                <span class="font-medium">9:00 AM - 5:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-700">Sunday</span>
+                                <span class="font-medium">10:00 AM - 4:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md border-gradient">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Location</h3>
+                        <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-purple-600 mr-2"></i> 123 Beauty Avenue, Suite 101<br>New York, NY 10001</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573813249!2d-73.9878449241643!3d40.74844097138992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689876433773!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 slide-in-right">
+                    <div class="booking-form p-8 rounded-xl shadow-xl border-gradient">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Online Booking</h3>
+                        <form id="appointmentForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Service</label>
+                                <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Haircut & Styling">Haircut & Styling</option>
+                                    <option value="Hair Coloring">Hair Coloring</option>
+                                    <option value="Skin Care & Facial">Skin Care & Facial</option>
+                                    <option value="Beard Grooming">Beard Grooming</option>
+                                    <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+                                    <option value="Bridal & Special Occasion">Bridal & Special Occasion</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="stylist" class="block text-gray-700 font-medium mb-2">Preferred Stylist (Optional)</label>
+                                <select id="stylist" name="stylist" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                    <option value="">No preference</option>
+                                    <option value="Sarah Johnson">Sarah Johnson</option>
+                                    <option value="Michael Chen">Michael Chen</option>
+                                    <option value="Emma Rodriguez">Emma Rodriguez</option>
+                                    <option value="David Wilson">David Wilson</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="date" class="block text-gray-700 font-medium mb-2">Date</label>
+                                <input type="date" id="date" name="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+                            
+                            <div>
+                                <label for="time" class="block text-gray-700 font-medium mb-2">Time</label>
+                                <input type="time" id="time" name="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+                            
+                            <div>
+                                <label for="notes" class="block text-gray-700 font-medium mb-2">Special Requests (Optional)</label>
+                                <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-4 rounded-lg">Book Appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-purple-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our <span class="text-gradient">Beauty Community</span></h2>
+            <p class="text-gray-600 mb-8">Subscribe to our newsletter for exclusive offers, beauty tips, and the latest trends.</p>
+            
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg border-0 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                <button type="submit" class="btn-primary text-white font-bold px-6 py-3 rounded-r-lg">Subscribe</button>
+            </form>
+            
+            <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-scissors text-2xl text-purple-400 mr-2"></i>
+                        <span class="text-xl font-bold">Stylelife</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Premium beauty and grooming services for everyone in a luxurious and welcoming environment.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover-grow"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover-grow"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover-grow"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover-grow"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#stylists" class="text-gray-400 hover:text-white transition duration-300">Stylists</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
+                        <li><a href="#booking" class="text-gray-400 hover:text-white transition duration-300">Book Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Haircut & Styling</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hair Coloring</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Skin Care & Facial</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Beard Grooming</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Manicure & Pedicure</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-purple-400 mr-2"></i>
+                            <span class="text-gray-400">123 Beauty Avenue, Suite 101<br>New York, NY 10001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-purple-400 mr-2"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-purple-400 mr-2"></i>
+                            <span class="text-gray-400">info@stylelife.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Stylelife Unisex Salon. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 80; // Adjust for fixed header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your appointment for ${service} on ${date} has been booked. We'll contact you shortly to confirm.`);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Set minimum date for booking (today)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .rotate-in, .scale-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translate(0) rotate(0) scale(1)';
+                }
+            });
+        }
+        
+        // Initialize animations
+        window.addEventListener('load', function() {
+            animateOnScroll();
+        });
+        
+        window.addEventListener('scroll', function() {
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
